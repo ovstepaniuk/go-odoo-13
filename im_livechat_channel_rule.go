@@ -40,7 +40,7 @@ func (c *Client) CreateImLivechatChannelRule(icr *ImLivechatChannelRule) (int64,
 	return ids[0], nil
 }
 
-// CreateImLivechatChannelRules creates a new im_livechat.channel.rule model and returns its id.
+// CreateImLivechatChannelRule creates a new im_livechat.channel.rule model and returns its id.
 func (c *Client) CreateImLivechatChannelRules(icrs []*ImLivechatChannelRule) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range icrs {

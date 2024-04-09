@@ -7,7 +7,7 @@ type IrModelFields struct {
 	Column2              *String    `xmlrpc:"column2,omitempty"`
 	CompleteName         *String    `xmlrpc:"complete_name,omitempty"`
 	Compute              *String    `xmlrpc:"compute,omitempty"`
-	Copy                 *Bool      `xmlrpc:"copy,omitempty"`
+	Copied               *Bool      `xmlrpc:"copied,omitempty"`
 	CreateDate           *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid            *Many2One  `xmlrpc:"create_uid,omitempty"`
 	Depends              *String    `xmlrpc:"depends,omitempty"`
@@ -25,17 +25,20 @@ type IrModelFields struct {
 	OnDelete             *Selection `xmlrpc:"on_delete,omitempty"`
 	Readonly             *Bool      `xmlrpc:"readonly,omitempty"`
 	Related              *String    `xmlrpc:"related,omitempty"`
+	RelatedFieldId       *Many2One  `xmlrpc:"related_field_id,omitempty"`
 	Relation             *String    `xmlrpc:"relation,omitempty"`
 	RelationField        *String    `xmlrpc:"relation_field,omitempty"`
+	RelationFieldId      *Many2One  `xmlrpc:"relation_field_id,omitempty"`
 	RelationTable        *String    `xmlrpc:"relation_table,omitempty"`
 	Required             *Bool      `xmlrpc:"required,omitempty"`
 	Selectable           *Bool      `xmlrpc:"selectable,omitempty"`
 	Selection            *String    `xmlrpc:"selection,omitempty"`
+	SelectionIds         *Relation  `xmlrpc:"selection_ids,omitempty"`
 	SerializationFieldId *Many2One  `xmlrpc:"serialization_field_id,omitempty"`
 	Size                 *Int       `xmlrpc:"size,omitempty"`
 	State                *Selection `xmlrpc:"state,omitempty"`
 	Store                *Bool      `xmlrpc:"store,omitempty"`
-	TrackVisibility      *Selection `xmlrpc:"track_visibility,omitempty"`
+	Tracking             *Int       `xmlrpc:"tracking,omitempty"`
 	Translate            *Bool      `xmlrpc:"translate,omitempty"`
 	Ttype                *Selection `xmlrpc:"ttype,omitempty"`
 	WriteDate            *Time      `xmlrpc:"write_date,omitempty"`
@@ -65,7 +68,7 @@ func (c *Client) CreateIrModelFields(imf *IrModelFields) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrModelFieldss creates a new ir.model.fields model and returns its id.
+// CreateIrModelFields creates a new ir.model.fields model and returns its id.
 func (c *Client) CreateIrModelFieldss(imfs []*IrModelFields) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range imfs {

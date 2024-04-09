@@ -16,7 +16,6 @@ type WebEditorConverterTest struct {
 	Integer      *Int       `xmlrpc:"integer,omitempty"`
 	Many2One     *Many2One  `xmlrpc:"many2one,omitempty"`
 	Numeric      *Float     `xmlrpc:"numeric,omitempty"`
-	Selection    *Selection `xmlrpc:"selection,omitempty"`
 	SelectionStr *Selection `xmlrpc:"selection_str,omitempty"`
 	Text         *String    `xmlrpc:"text,omitempty"`
 	WriteDate    *Time      `xmlrpc:"write_date,omitempty"`
@@ -46,7 +45,7 @@ func (c *Client) CreateWebEditorConverterTest(wct *WebEditorConverterTest) (int6
 	return ids[0], nil
 }
 
-// CreateWebEditorConverterTests creates a new web_editor.converter.test model and returns its id.
+// CreateWebEditorConverterTest creates a new web_editor.converter.test model and returns its id.
 func (c *Client) CreateWebEditorConverterTests(wcts []*WebEditorConverterTest) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range wcts {

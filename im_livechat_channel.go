@@ -11,12 +11,11 @@ type ImLivechatChannel struct {
 	DefaultMessage               *String   `xmlrpc:"default_message,omitempty"`
 	DisplayName                  *String   `xmlrpc:"display_name,omitempty"`
 	Id                           *Int      `xmlrpc:"id,omitempty"`
-	Image                        *String   `xmlrpc:"image,omitempty"`
-	ImageMedium                  *String   `xmlrpc:"image_medium,omitempty"`
-	ImageSmall                   *String   `xmlrpc:"image_small,omitempty"`
+	Image128                     *String   `xmlrpc:"image_128,omitempty"`
 	InputPlaceholder             *String   `xmlrpc:"input_placeholder,omitempty"`
 	Name                         *String   `xmlrpc:"name,omitempty"`
 	NbrChannel                   *Int      `xmlrpc:"nbr_channel,omitempty"`
+	RatingIds                    *Relation `xmlrpc:"rating_ids,omitempty"`
 	RatingPercentageSatisfaction *Int      `xmlrpc:"rating_percentage_satisfaction,omitempty"`
 	RuleIds                      *Relation `xmlrpc:"rule_ids,omitempty"`
 	ScriptExternal               *String   `xmlrpc:"script_external,omitempty"`
@@ -49,7 +48,7 @@ func (c *Client) CreateImLivechatChannel(ic *ImLivechatChannel) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateImLivechatChannels creates a new im_livechat.channel model and returns its id.
+// CreateImLivechatChannel creates a new im_livechat.channel model and returns its id.
 func (c *Client) CreateImLivechatChannels(ics []*ImLivechatChannel) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ics {

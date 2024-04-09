@@ -8,6 +8,8 @@ type IrUiView struct {
 	ArchBase           *String    `xmlrpc:"arch_base,omitempty"`
 	ArchDb             *String    `xmlrpc:"arch_db,omitempty"`
 	ArchFs             *String    `xmlrpc:"arch_fs,omitempty"`
+	ArchPrev           *String    `xmlrpc:"arch_prev,omitempty"`
+	ArchUpdated        *Bool      `xmlrpc:"arch_updated,omitempty"`
 	CreateDate         *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid          *Many2One  `xmlrpc:"create_uid,omitempty"`
 	DisplayName        *String    `xmlrpc:"display_name,omitempty"`
@@ -52,7 +54,7 @@ func (c *Client) CreateIrUiView(iuv *IrUiView) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrUiViews creates a new ir.ui.view model and returns its id.
+// CreateIrUiView creates a new ir.ui.view model and returns its id.
 func (c *Client) CreateIrUiViews(iuvs []*IrUiView) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iuvs {

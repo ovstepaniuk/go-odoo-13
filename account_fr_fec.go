@@ -39,7 +39,7 @@ func (c *Client) CreateAccountFrFec(aff *AccountFrFec) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateAccountFrFecs creates a new account.fr.fec model and returns its id.
+// CreateAccountFrFec creates a new account.fr.fec model and returns its id.
 func (c *Client) CreateAccountFrFecs(affs []*AccountFrFec) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range affs {

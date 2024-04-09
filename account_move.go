@@ -2,28 +2,116 @@ package odoo
 
 // AccountMove represents account.move model.
 type AccountMove struct {
-	LastUpdate        *Time      `xmlrpc:"__last_update,omitempty"`
-	Amount            *Float     `xmlrpc:"amount,omitempty"`
-	CompanyId         *Many2One  `xmlrpc:"company_id,omitempty"`
-	CreateDate        *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid         *Many2One  `xmlrpc:"create_uid,omitempty"`
-	CurrencyId        *Many2One  `xmlrpc:"currency_id,omitempty"`
-	Date              *Time      `xmlrpc:"date,omitempty"`
-	DisplayName       *String    `xmlrpc:"display_name,omitempty"`
-	DummyAccountId    *Many2One  `xmlrpc:"dummy_account_id,omitempty"`
-	Id                *Int       `xmlrpc:"id,omitempty"`
-	JournalId         *Many2One  `xmlrpc:"journal_id,omitempty"`
-	LineIds           *Relation  `xmlrpc:"line_ids,omitempty"`
-	MatchedPercentage *Float     `xmlrpc:"matched_percentage,omitempty"`
-	Name              *String    `xmlrpc:"name,omitempty"`
-	Narration         *String    `xmlrpc:"narration,omitempty"`
-	PartnerId         *Many2One  `xmlrpc:"partner_id,omitempty"`
-	Ref               *String    `xmlrpc:"ref,omitempty"`
-	State             *Selection `xmlrpc:"state,omitempty"`
-	StockMoveId       *Many2One  `xmlrpc:"stock_move_id,omitempty"`
-	TaxCashBasisRecId *Many2One  `xmlrpc:"tax_cash_basis_rec_id,omitempty"`
-	WriteDate         *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid          *Many2One  `xmlrpc:"write_uid,omitempty"`
+	LastUpdate                            *Time      `xmlrpc:"__last_update,omitempty"`
+	AccessToken                           *String    `xmlrpc:"access_token,omitempty"`
+	AccessUrl                             *String    `xmlrpc:"access_url,omitempty"`
+	AccessWarning                         *String    `xmlrpc:"access_warning,omitempty"`
+	ActivityDateDeadline                  *Time      `xmlrpc:"activity_date_deadline,omitempty"`
+	ActivityExceptionDecoration           *Selection `xmlrpc:"activity_exception_decoration,omitempty"`
+	ActivityExceptionIcon                 *String    `xmlrpc:"activity_exception_icon,omitempty"`
+	ActivityIds                           *Relation  `xmlrpc:"activity_ids,omitempty"`
+	ActivityState                         *Selection `xmlrpc:"activity_state,omitempty"`
+	ActivitySummary                       *String    `xmlrpc:"activity_summary,omitempty"`
+	ActivityTypeId                        *Many2One  `xmlrpc:"activity_type_id,omitempty"`
+	ActivityUserId                        *Many2One  `xmlrpc:"activity_user_id,omitempty"`
+	AmountByGroup                         *String    `xmlrpc:"amount_by_group,omitempty"`
+	AmountResidual                        *Float     `xmlrpc:"amount_residual,omitempty"`
+	AmountResidualSigned                  *Float     `xmlrpc:"amount_residual_signed,omitempty"`
+	AmountTax                             *Float     `xmlrpc:"amount_tax,omitempty"`
+	AmountTaxSigned                       *Float     `xmlrpc:"amount_tax_signed,omitempty"`
+	AmountTotal                           *Float     `xmlrpc:"amount_total,omitempty"`
+	AmountTotalSigned                     *Float     `xmlrpc:"amount_total_signed,omitempty"`
+	AmountUntaxed                         *Float     `xmlrpc:"amount_untaxed,omitempty"`
+	AmountUntaxedSigned                   *Float     `xmlrpc:"amount_untaxed_signed,omitempty"`
+	AuthorizedTransactionIds              *Relation  `xmlrpc:"authorized_transaction_ids,omitempty"`
+	AutoPost                              *Bool      `xmlrpc:"auto_post,omitempty"`
+	BankPartnerId                         *Many2One  `xmlrpc:"bank_partner_id,omitempty"`
+	CampaignId                            *Many2One  `xmlrpc:"campaign_id,omitempty"`
+	CommercialPartnerId                   *Many2One  `xmlrpc:"commercial_partner_id,omitempty"`
+	CompanyCurrencyId                     *Many2One  `xmlrpc:"company_currency_id,omitempty"`
+	CompanyId                             *Many2One  `xmlrpc:"company_id,omitempty"`
+	CreateDate                            *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid                             *Many2One  `xmlrpc:"create_uid,omitempty"`
+	CurrencyId                            *Many2One  `xmlrpc:"currency_id,omitempty"`
+	Date                                  *Time      `xmlrpc:"date,omitempty"`
+	DisplayName                           *String    `xmlrpc:"display_name,omitempty"`
+	FiscalPositionId                      *Many2One  `xmlrpc:"fiscal_position_id,omitempty"`
+	HasReconciledEntries                  *Bool      `xmlrpc:"has_reconciled_entries,omitempty"`
+	Id                                    *Int       `xmlrpc:"id,omitempty"`
+	InalterableHash                       *String    `xmlrpc:"inalterable_hash,omitempty"`
+	InvoiceCashRoundingId                 *Many2One  `xmlrpc:"invoice_cash_rounding_id,omitempty"`
+	InvoiceDate                           *Time      `xmlrpc:"invoice_date,omitempty"`
+	InvoiceDateDue                        *Time      `xmlrpc:"invoice_date_due,omitempty"`
+	InvoiceFilterTypeDomain               *String    `xmlrpc:"invoice_filter_type_domain,omitempty"`
+	InvoiceHasMatchingSuspenseAmount      *Bool      `xmlrpc:"invoice_has_matching_suspense_amount,omitempty"`
+	InvoiceHasOutstanding                 *Bool      `xmlrpc:"invoice_has_outstanding,omitempty"`
+	InvoiceIncotermId                     *Many2One  `xmlrpc:"invoice_incoterm_id,omitempty"`
+	InvoiceLineIds                        *Relation  `xmlrpc:"invoice_line_ids,omitempty"`
+	InvoiceOrigin                         *String    `xmlrpc:"invoice_origin,omitempty"`
+	InvoiceOutstandingCreditsDebitsWidget *String    `xmlrpc:"invoice_outstanding_credits_debits_widget,omitempty"`
+	InvoicePartnerBankId                  *Many2One  `xmlrpc:"invoice_partner_bank_id,omitempty"`
+	InvoicePartnerDisplayName             *String    `xmlrpc:"invoice_partner_display_name,omitempty"`
+	InvoicePartnerIcon                    *String    `xmlrpc:"invoice_partner_icon,omitempty"`
+	InvoicePaymentRef                     *String    `xmlrpc:"invoice_payment_ref,omitempty"`
+	InvoicePaymentState                   *Selection `xmlrpc:"invoice_payment_state,omitempty"`
+	InvoicePaymentTermId                  *Many2One  `xmlrpc:"invoice_payment_term_id,omitempty"`
+	InvoicePaymentsWidget                 *String    `xmlrpc:"invoice_payments_widget,omitempty"`
+	InvoiceSent                           *Bool      `xmlrpc:"invoice_sent,omitempty"`
+	InvoiceSequenceNumberNext             *String    `xmlrpc:"invoice_sequence_number_next,omitempty"`
+	InvoiceSequenceNumberNextPrefix       *String    `xmlrpc:"invoice_sequence_number_next_prefix,omitempty"`
+	InvoiceSourceEmail                    *String    `xmlrpc:"invoice_source_email,omitempty"`
+	InvoiceUserId                         *Many2One  `xmlrpc:"invoice_user_id,omitempty"`
+	InvoiceVendorBillId                   *Many2One  `xmlrpc:"invoice_vendor_bill_id,omitempty"`
+	JournalId                             *Many2One  `xmlrpc:"journal_id,omitempty"`
+	LineIds                               *Relation  `xmlrpc:"line_ids,omitempty"`
+	MachineInvoice                        *Bool      `xmlrpc:"machine_invoice,omitempty"`
+	MachineInvoiceTitle                   *String    `xmlrpc:"machine_invoice_title,omitempty"`
+	MachinePurchaseOrder                  *String    `xmlrpc:"machine_purchase_order,omitempty"`
+	MediumId                              *Many2One  `xmlrpc:"medium_id,omitempty"`
+	MessageAttachmentCount                *Int       `xmlrpc:"message_attachment_count,omitempty"`
+	MessageChannelIds                     *Relation  `xmlrpc:"message_channel_ids,omitempty"`
+	MessageFollowerIds                    *Relation  `xmlrpc:"message_follower_ids,omitempty"`
+	MessageHasError                       *Bool      `xmlrpc:"message_has_error,omitempty"`
+	MessageHasErrorCounter                *Int       `xmlrpc:"message_has_error_counter,omitempty"`
+	MessageHasSmsError                    *Bool      `xmlrpc:"message_has_sms_error,omitempty"`
+	MessageIds                            *Relation  `xmlrpc:"message_ids,omitempty"`
+	MessageIsFollower                     *Bool      `xmlrpc:"message_is_follower,omitempty"`
+	MessageMainAttachmentId               *Many2One  `xmlrpc:"message_main_attachment_id,omitempty"`
+	MessageNeedaction                     *Bool      `xmlrpc:"message_needaction,omitempty"`
+	MessageNeedactionCounter              *Int       `xmlrpc:"message_needaction_counter,omitempty"`
+	MessagePartnerIds                     *Relation  `xmlrpc:"message_partner_ids,omitempty"`
+	MessageUnread                         *Bool      `xmlrpc:"message_unread,omitempty"`
+	MessageUnreadCounter                  *Int       `xmlrpc:"message_unread_counter,omitempty"`
+	Name                                  *String    `xmlrpc:"name,omitempty"`
+	Narration                             *String    `xmlrpc:"narration,omitempty"`
+	PartnerId                             *Many2One  `xmlrpc:"partner_id,omitempty"`
+	PartnerShippingId                     *Many2One  `xmlrpc:"partner_shipping_id,omitempty"`
+	PurchaseId                            *Many2One  `xmlrpc:"purchase_id,omitempty"`
+	PurchaseVendorBillId                  *Many2One  `xmlrpc:"purchase_vendor_bill_id,omitempty"`
+	QuantityTotal                         *Float     `xmlrpc:"quantity_total,omitempty"`
+	Ref                                   *String    `xmlrpc:"ref,omitempty"`
+	RestrictModeHashTable                 *Bool      `xmlrpc:"restrict_mode_hash_table,omitempty"`
+	ReversalMoveId                        *Relation  `xmlrpc:"reversal_move_id,omitempty"`
+	ReversedEntryId                       *Many2One  `xmlrpc:"reversed_entry_id,omitempty"`
+	SecureSequenceNumber                  *Int       `xmlrpc:"secure_sequence_number,omitempty"`
+	SourceId                              *Many2One  `xmlrpc:"source_id,omitempty"`
+	State                                 *Selection `xmlrpc:"state,omitempty"`
+	StockMoveId                           *Many2One  `xmlrpc:"stock_move_id,omitempty"`
+	StockValuationLayerIds                *Relation  `xmlrpc:"stock_valuation_layer_ids,omitempty"`
+	StringToHash                          *String    `xmlrpc:"string_to_hash,omitempty"`
+	TaxCashBasisRecId                     *Many2One  `xmlrpc:"tax_cash_basis_rec_id,omitempty"`
+	TaxLockDateMessage                    *String    `xmlrpc:"tax_lock_date_message,omitempty"`
+	TeamId                                *Many2One  `xmlrpc:"team_id,omitempty"`
+	TimesheetCount                        *Int       `xmlrpc:"timesheet_count,omitempty"`
+	TimesheetIds                          *Relation  `xmlrpc:"timesheet_ids,omitempty"`
+	ToCheck                               *Bool      `xmlrpc:"to_check,omitempty"`
+	TransactionIds                        *Relation  `xmlrpc:"transaction_ids,omitempty"`
+	Type                                  *Selection `xmlrpc:"type,omitempty"`
+	TypeName                              *String    `xmlrpc:"type_name,omitempty"`
+	UserId                                *Many2One  `xmlrpc:"user_id,omitempty"`
+	WebsiteMessageIds                     *Relation  `xmlrpc:"website_message_ids,omitempty"`
+	WriteDate                             *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid                              *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountMoves represents array of account.move model.
@@ -49,7 +137,7 @@ func (c *Client) CreateAccountMove(am *AccountMove) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateAccountMoves creates a new account.move model and returns its id.
+// CreateAccountMove creates a new account.move model and returns its id.
 func (c *Client) CreateAccountMoves(ams []*AccountMove) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ams {

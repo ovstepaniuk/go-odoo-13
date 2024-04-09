@@ -37,7 +37,7 @@ func (c *Client) CreateBaseLanguageInstall(bli *BaseLanguageInstall) (int64, err
 	return ids[0], nil
 }
 
-// CreateBaseLanguageInstalls creates a new base.language.install model and returns its id.
+// CreateBaseLanguageInstall creates a new base.language.install model and returns its id.
 func (c *Client) CreateBaseLanguageInstalls(blis []*BaseLanguageInstall) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range blis {
