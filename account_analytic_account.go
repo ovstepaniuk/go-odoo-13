@@ -35,6 +35,7 @@ type AccountAnalyticAccount struct {
 	PartnerId                *Many2One `xmlrpc:"partner_id,omitempty"`
 	ProjectCount             *Int      `xmlrpc:"project_count,omitempty"`
 	ProjectIds               *Relation `xmlrpc:"project_ids,omitempty"`
+	TagIds                   *Relation `xmlrpc:"tag_ids,omitempty"`
 	WebsiteMessageIds        *Relation `xmlrpc:"website_message_ids,omitempty"`
 	WriteDate                *Time     `xmlrpc:"write_date,omitempty"`
 	WriteUid                 *Many2One `xmlrpc:"write_uid,omitempty"`
